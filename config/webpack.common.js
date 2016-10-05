@@ -18,7 +18,9 @@ module.exports = {
       { test: /\.ts$/, loaders: [ 'awesome-typescript-loader', 'angular2-template-loader' ]},
       { test: /\.html$/, loader: 'html'},
       { test: /\.css$/, exclude: helper.root('src', 'app'), loader: ExtractTextPlugin.extract('style', 'css?sourceMap')},
-      { test: /\.css$/, include: helper.root('src', 'app'), loader: 'raw'}
+      { test: /\.css$/, include: helper.root('src', 'app'), loader: 'raw'},
+      { test: /\.((woff2?|svg)(\?v=[0-9]\.[0-9]\.[0-9]))|(woff2?|svg|jpe?g|png|gif|ico)$/, loader: 'url?limit=10000' },
+      { test: /\.((ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9]))|(ttf|eot)$/, loader: 'file' }
     ]
   },
   plugins: [
@@ -27,6 +29,10 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html'
+    }),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
     })
   ]
 };

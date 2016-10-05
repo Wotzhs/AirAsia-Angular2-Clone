@@ -9,7 +9,8 @@ import {Component} from '@angular/core';
       <span>menu2</span>
       <span>menu3</span>
    </span>
-   <router-outlet></router-outlet>`
+   <router-outlet></router-outlet>
+   `
 })
 
 export class AppComponent { }
