@@ -1,0 +1,59 @@
+<form [formGroup]="bookingBox" (ngSubmit)="submit(bookingBox.value, bookingBox.valid)">
+
+    <div *ngFor="let bookingType of bookingTypes">
+      <label><input type="radio" formControlName="bookingType" [value]="bookingType.value">{{bookingType.display}}</label>
+    </div>
+
+  <div *ngFor="let flightType of flightTypes">
+    <label><input type="radio" formControlName="flightType" [value]="flightType.value">{{flightType.display}}</label>
+  </div>
+
+  <div>
+    <label for="origin">Origin</label>
+    <select class="" formControlName="origin" name="origin">
+      <option *ngFor="let origin of origins" [value]="origin.value">{{origin.display}}</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="destination">Destination</label>
+    <select class="" formControlName="destination" name="destination">
+      <option *ngFor="let destination of destinations" [value]="destination.value">{{destination.display}}</option>
+    </select>
+  </div>
+
+  <div>
+    <select formControlName="currency">
+      <option *ngFor="let currency of currencies" [value]="currency.value">{{currency.display}}</option>
+    </select>
+  </div>
+
+  <div>
+    <select formControlName="adult">
+      <option *ngFor="let number of [0,1,2,3,4,5,6,7,8,9]" [value]="number">{{number}} Adult</option>
+    </select>
+
+    <select formControlName="children">
+      <option *ngFor="let number of [0,1,2,3,4,5,6,7,8,9]" [value]="number">{{number}} Children</option>
+    </select>
+
+    <select formControlName="infant">
+      <option *ngFor="let number of [0,1,2,3,4,5,6,7,8,9]" [value]="number">{{number}} Infant</option>
+    </select>
+  </div>
+
+  <div>
+      <label><input type="radio" formControlName="travel_priority" [value]="date">I must travel on this date</label>
+      <label><input type="radio" formControlName="travel_priority" [value]="price">I just want the cheapest flight</label>
+  </div>
+
+  <div>
+    <input formControlName="depart_date" value="" placeholder="Depart Date">
+  </div>
+
+  <div>
+    <input formControlName="return_date" value="" placeholder="Return Date">
+  </div>
+
+  <input type="submit" value="Search">
+</form>
