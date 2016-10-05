@@ -42,18 +42,17 @@
     </select>
   </div>
 
-  <div>
-      <label><input type="radio" formControlName="travel_priority" [value]="date">I must travel on this date</label>
-      <label><input type="radio" formControlName="travel_priority" [value]="price">I just want the cheapest flight</label>
+  <div *ngFor="let bookingChoice of bookingChoices">
+      <label><input type="radio" formControlName="bookingChoice" [value]="bookingChoice.value">{{bookingChoice.display}}</label>
   </div>
 
   <div>
-    <input formControlName="depart_date" value="" placeholder="Depart Date">
+	 <my-date-picker [options]="myDatePickerOptions" (dateChanged)="updateDepartDate($event)"></my-date-picker>
   </div>
 
   <div>
-    <input formControlName="return_date" value="" placeholder="Return Date">
+   	 <my-date-picker [options]="myDatePickerOptions" (dateChanged)="updateReturnDate($event)"></my-date-picker>
   </div>
 
-  <input type="submit" value="Search">
+  <input type="submit" [disabled]="!bookingBox.valid" value="Search">
 </form>

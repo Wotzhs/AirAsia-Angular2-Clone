@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const helper = require('./helper.js');
 
+
 module.exports = {
   entry: {
     'polyfills': './src/polyfill.ts',

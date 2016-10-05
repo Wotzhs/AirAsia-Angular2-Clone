@@ -6,3 +6,7 @@ typings/
 
 # ignore npm debug logs
 npm-debug.log*
+
+# ignore vim generated files
+*.*~
+.swp

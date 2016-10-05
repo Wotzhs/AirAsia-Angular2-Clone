@@ -47,7 +47,22 @@ export class BookingBoxComponent implements OnInit {
     { value: "Flight + Hotel", display: "Flight + Hotel"},
     { value: "Car", display: "Car"}
   ]
+  
+  public bookingChoices = [
+    { value: "date", display: "I must travel on these dates" },
+    { value: "price", display: "I just want the cheapest flight"}
+  ]
 
+  public myDatePickerOptions = {
+  	dateFormat: "dd/mm/yyyy",
+	fistDayOfWeek: 'mo',
+	sunHighlight: true,
+	height:'34px',
+	width: '260px',
+	inline: false,
+	disableUntil: {year: new Date().getFullYear() , month: new Date().getMonth()+1 , day: new Date().getDate()-1}
+  }
+ 
   ngOnInit(){
     this.bookingBox = this.formbuilder.group({
       bookingType: ["", Validators.required],
@@ -58,7 +73,7 @@ export class BookingBoxComponent implements OnInit {
       adult: ["", Validators.required],
       children: ["", Validators.required],
       infant: ["", Validators.required],
-      travel_priority: ["", Validators.required],
+      bookingChoice: ["", Validators.required],
       depart_date: ["", Validators.required],
       return_date: ["", Validators.required],
     })
@@ -66,5 +81,18 @@ export class BookingBoxComponent implements OnInit {
 
   submit(origin: String, destination: boolean){
     alert(JSON.stringify(origin) + destination)
+   }
+  
+  updateDepartDate(event: any){
+    console.log('depart date:', event.date, ' - formatted', event.formatted, ' - epoc timestamp', event.epoc);
+    this.bookingBox.patchValue({depart_date: event.formatted});  
+  }
+  
+  updateReturnDate(event: any){
+    console.log('return date: ', event.date, ' - formatted', event.formatted, ' - epoc timestamp', event.epoc);
+    this.bookingBox.patchValue({return_date: event.formatted});  
   }
 }
+
+
+
