@@ -1,58 +1,98 @@
 <form [formGroup]="bookingBox" (ngSubmit)="submit(bookingBox.value, bookingBox.valid)">
+  <div class="ui inverted segment">
+    <div class="ui inverted form">
+      <div class="inline fields"> <!-- Booking Type (Flight/Hotel/Car) -->
+        <div *ngFor="let bookingType of bookingTypes">
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" formControlName="bookingType" [value]="bookingType.value" tabindex="0">
+              <label>{{bookingType.display}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="two fields"> <!-- Flight Type (return/oneway/multi) & currencies -->
+        <div class="inline fields">
+          <div *ngFor="let flightType of flightTypes">
+            <div class="field">
+                <div class="ui red circular label">{{flightType.display}}</div>
+            </div>
+          </div>
+        </div>
 
-    <div *ngFor="let bookingType of bookingTypes">
-      <label><input type="radio" formControlName="bookingType" [value]="bookingType.value">{{bookingType.display}}</label>
+        <div class="field">
+          <select formControlName="currency">
+            <option *ngFor="let currency of currencies" [value]="currency.value">{{currency.display}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="two fields">
+        <div class="field">
+          <div>
+            <label for="origin">Origin</label>
+            <select class="" formControlName="origin" name="origin">
+              <option *ngFor="let origin of origins" [value]="origin.value">{{origin.display}}</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="destination">Destination</label>
+            <select class="" formControlName="destination" name="destination">
+              <option *ngFor="let destination of destinations" [value]="destination.value">{{destination.display}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <div>
+            <div><label>Depart date</label></div>
+        	 <my-date-picker [options]="myDatePickerOptions" (dateChanged)="updateDepartDate($event)"></my-date-picker>
+          </div>
+
+          <div>
+            <div><label>Return date</label></div>
+           	 <my-date-picker [options]="myDatePickerOptions" (dateChanged)="updateReturnDate($event)"></my-date-picker>
+          </div>
+        </div>
+      </div>
+
+      <div class="three fields">
+        <div class="field">
+          <select formControlName="adult">
+            <option *ngFor="let number of [0,1,2,3,4,5,6,7,8,9]" [value]="number">{{number}} Adult</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <select formControlName="children">
+            <option *ngFor="let number of [0,1,2,3,4,5,6,7,8,9]" [value]="number">{{number}} Children</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <select formControlName="infant">
+            <option *ngFor="let number of [0,1,2,3,4,5,6,7,8,9]" [value]="number">{{number}} Infant</option>
+          </select>
+        </div>
+      </div>
+
+      <p>
+        <a href="javascript:void()">Travelling with under 18 or medical/special needs
+          <i class="external link icon"></i>
+        </a>
+      </p>
+
+      <div class="two fields">
+        <div class="field">
+          <div *ngFor="let bookingChoice of bookingChoices">
+              <label><input type="radio" formControlName="bookingChoice" [value]="bookingChoice.value">{{bookingChoice.display}}</label>
+          </div>
+        </div>
+        <div class="field">
+          <button class="ui submit button" type="submit" [disabled]="!bookingBox.valid" >Search</button>
+        </div>
+      </div>
     </div>
-
-  <div *ngFor="let flightType of flightTypes">
-    <label><input type="radio" formControlName="flightType" [value]="flightType.value">{{flightType.display}}</label>
   </div>
-
-  <div>
-    <label for="origin">Origin</label>
-    <select class="" formControlName="origin" name="origin">
-      <option *ngFor="let origin of origins" [value]="origin.value">{{origin.display}}</option>
-    </select>
-  </div>
-
-  <div>
-    <label for="destination">Destination</label>
-    <select class="" formControlName="destination" name="destination">
-      <option *ngFor="let destination of destinations" [value]="destination.value">{{destination.display}}</option>
-    </select>
-  </div>
-
-  <div>
-    <select formControlName="currency">
-      <option *ngFor="let currency of currencies" [value]="currency.value">{{currency.display}}</option>
-    </select>
-  </div>
-
-  <div>
-    <select formControlName="adult">
-      <option *ngFor="let number of [0,1,2,3,4,5,6,7,8,9]" [value]="number">{{number}} Adult</option>
-    </select>
-
-    <select formControlName="children">
-      <option *ngFor="let number of [0,1,2,3,4,5,6,7,8,9]" [value]="number">{{number}} Children</option>
-    </select>
-
-    <select formControlName="infant">
-      <option *ngFor="let number of [0,1,2,3,4,5,6,7,8,9]" [value]="number">{{number}} Infant</option>
-    </select>
-  </div>
-
-  <div *ngFor="let bookingChoice of bookingChoices">
-      <label><input type="radio" formControlName="bookingChoice" [value]="bookingChoice.value">{{bookingChoice.display}}</label>
-  </div>
-
-  <div>
-	 <my-date-picker [options]="myDatePickerOptions" (dateChanged)="updateDepartDate($event)"></my-date-picker>
-  </div>
-
-  <div>
-   	 <my-date-picker [options]="myDatePickerOptions" (dateChanged)="updateReturnDate($event)"></my-date-picker>
-  </div>
-
-  <input type="submit" [disabled]="!bookingBox.valid" value="Search">
 </form>

@@ -7,5 +7,5 @@ import '@angular/router';
 
 // RXJS
 import 'rxjs';
-import 'semantic-ui/dist/semantic.min.css';
-import 'semantic-ui/dist/semantic.min.js';
+import 'semantic-ui/dist/semantic.css';
+import 'semantic-ui/dist/semantic.js';
