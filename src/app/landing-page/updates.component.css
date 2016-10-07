@@ -1,0 +1,22 @@
+.update{
+  height:180px;
+  width:240px;
+  margin-top:15px;
+  margin-bottom: 15px;
+}
+
+img{
+  border-radius: 5px;
+}
+
+.content{
+  position: relative;
+  bottom: 45px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+p{
+  text-align: center;
+  font-size: 12px;
+}

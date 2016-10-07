@@ -1,4 +1,6 @@
-import {Component} from '@angular/core'
+import {Component, OnInit} from '@angular/core';
+import {Updates} from './updates';
+import {UpdatesService} from './updates.service';
 
 @Component({
   selector: 'updates',
@@ -7,4 +9,16 @@ import {Component} from '@angular/core'
   providers: [UpdatesService]
 })
 
-export class UpdatesComponent { }
+export class UpdatesComponent {
+
+  updates: Updates[];
+
+  constructor(private updatesService: UpdatesService){}
+  getUpdates(): void{
+    this.updatesService.getUpdates().then(updates => this.updates = updates)
+  }
+
+  ngOnInit(): void{
+    this.getUpdates();
+  }
+}

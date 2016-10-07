@@ -1,1 +1,12 @@
-this is the updates component
+<div class="ui centered grid container">
+  <div *ngFor="let update of updates">
+    <div class="four wide column update">
+      <a class="image" href="#">
+          <img class="ui fluid image" src="{{update.imageUrl}}" alt="update" />
+          <div class="content">
+            <p>{{update.description}}</p>
+          </div>
+      </a>
+    </div>
+  </div>
+</div>
