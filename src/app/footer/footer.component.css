@@ -1,0 +1,21 @@
+h2{
+  text-align: center;
+  color: white;
+}
+
+a{
+  margin:0px;
+}
+
+:host{
+  margin-top: 45px;
+  background: rgba(0,0,0,1)
+}
+
+.ui.circular.image{
+  display: inline;
+  width: 64px;
+  height: 64px;
+  margin-left: -0.45rem;
+  margin-right: -0.15rem;
+}

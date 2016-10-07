@@ -7,6 +7,7 @@ import { routing } from './app.routing';
 // app main components
 import { NavbarComponent} from './navbar/navbar.component';
 import { LandingPageComponent} from './landing-page/landing-page.component';
+import { FooterComponent} from './footer/footer.component';
 
 // landing page sub components
 import { BookingBoxComponent} from './landing-page/booking-box.component';
@@ -18,7 +19,7 @@ import { UpdatesComponent } from './landing-page/updates.component'
 @NgModule({
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, MyDatePickerModule, routing],
   declarations: [
-    AppComponent, NavbarComponent,
+    AppComponent, NavbarComponent, FooterComponent,
     LandingPageComponent,
       BookingBoxComponent, AdCarouselBoxComponent, BannerComponent, UpdatesComponent
   ],
