@@ -58,7 +58,7 @@ export class BookingBoxComponent implements OnInit {
 	fistDayOfWeek: 'mo',
 	sunHighlight: true,
 	height:'34px',
-	width: '260px',
+	// width: '260px',
 	inline: false,
 	disableUntil: {year: new Date().getFullYear() , month: new Date().getMonth()+1 , day: new Date().getDate()-1}
   }

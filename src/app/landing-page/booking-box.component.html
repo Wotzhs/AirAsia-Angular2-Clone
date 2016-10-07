@@ -11,8 +11,8 @@
           </div>
         </div>
       </div>
-      <div class="two fields"> <!-- Flight Type (return/oneway/multi) & currencies -->
-        <div class="inline fields">
+      <div class="inline fields"> <!-- Flight Type (return/oneway/multi) & currencies -->
+        <div class="twelve wide field">
           <div *ngFor="let flightType of flightTypes">
             <div class="field">
                 <div class="ui red circular label">{{flightType.display}}</div>
@@ -20,7 +20,9 @@
           </div>
         </div>
 
-        <div class="field">
+
+
+        <div class="four wide field">
           <select formControlName="currency">
             <option *ngFor="let currency of currencies" [value]="currency.value">{{currency.display}}</option>
           </select>

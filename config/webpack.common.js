@@ -19,7 +19,7 @@ module.exports = {
       { test: /\.html$/, loader: 'html'},
       { test: /\.css$/, exclude: helper.root('src', 'app'), loader: ExtractTextPlugin.extract('style', 'css?sourceMap')},
       { test: /\.css$/, include: helper.root('src', 'app'), loader: 'raw'},
-      { test: /\.(png|jpg|jpeg|svg|woff|woff2|ttf|eot)$/i, loaders: ['file-loader']},
+      { test: /\.(png|jpg|jpeg|svg|woff|woff2|ttf|eot)$/i, loaders: ['file-loader']}
     ]
   },
   plugins: [

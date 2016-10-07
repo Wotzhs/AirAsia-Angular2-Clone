@@ -1,10 +1,9 @@
 {
   "name": "a",
-  "dependencies": {
-    
-  },
+  "dependencies": {},
   "globalDependencies": {
     "jasmine": "registry:dt/jasmine#2.5.0+20161003201800",
+    "jquery": "registry:dt/jquery#1.10.0+20160929162922",
     "node": "registry:env/node#6.0.0+20160918225031"
   }
 }
