@@ -9,8 +9,10 @@ import {Component} from '@angular/core';
 export class FooterComponent {
 
   aaiconpath: string;
+  aalinepath: string;
 
   constructor(){
     this.aaiconpath = '../src/assets/img/aa_icon.png' ;
+    this.aalinepath = '../src/assets/img/aa_line.jpg' ;
   }
 }

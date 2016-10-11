@@ -12,10 +12,18 @@ a{
   background: rgba(0,0,0,1)
 }
 
-.ui.circular.image{
+.ui.circular.image.blog{
   display: inline;
   width: 64px;
   height: 64px;
   margin-left: -0.45rem;
   margin-right: -0.15rem;
+}
+
+.ui.circular.image.line{
+  display: inline;
+  width: 48px;
+  height: 48px;
+  /*margin-left: -0.45rem;*/
+  margin-right: 0.15rem;
 }
