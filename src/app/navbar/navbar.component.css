@@ -2,6 +2,14 @@
   background: red;
 }
 
-.ui.menu a{
+.menu > a{
   color: white;
+}
+:host >>> .browse.item{
+  top: 6px;
+  color: white;
+}
+
+:host >>> .ui.menu .item:before{
+  content: none;
 }

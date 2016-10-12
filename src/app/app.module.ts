@@ -9,6 +9,11 @@ import { NavbarComponent} from './navbar/navbar.component';
 import { LandingPageComponent} from './landing-page/landing-page.component';
 import { FooterComponent} from './footer/footer.component';
 
+// navbar sub components
+import { WebCheckInComponent} from './navbar/web-check-in/web-check-in.component';
+import { TravelInfoComponent} from './navbar/travel-information/travel-info.component';
+import { BusinessGovernmentComponent} from './navbar/business-government/business-government.component';
+
 // landing page sub components
 import { BookingBoxComponent} from './landing-page/booking-box.component';
 import { BannerComponent} from './landing-page/banner.component';
@@ -19,9 +24,12 @@ import { UpdatesComponent } from './landing-page/updates.component'
 @NgModule({
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, MyDatePickerModule, routing],
   declarations: [
-    AppComponent, NavbarComponent, FooterComponent,
-    LandingPageComponent,
-      BookingBoxComponent, AdCarouselBoxComponent, BannerComponent, UpdatesComponent
+    AppComponent,
+        NavbarComponent,
+            WebCheckInComponent, TravelInfoComponent, BusinessGovernmentComponent,
+        FooterComponent,
+        LandingPageComponent,
+            BookingBoxComponent, AdCarouselBoxComponent, BannerComponent, UpdatesComponent
   ],
   bootstrap: [AppComponent]
 })

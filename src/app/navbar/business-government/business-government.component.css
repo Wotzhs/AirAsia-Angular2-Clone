@@ -1,0 +1,28 @@
+i.icon{
+  display: inline;
+}
+
+#backdrop{
+  background-image: url('../src/assets/img/business-government-backdrop.jpg');
+  background-position: center top;
+  background-size: cover;
+  z-index: -1;
+}
+
+.subsection{
+  margin-bottom: 1.25rem;
+}
+
+h4{
+  margin-bottom: 0.5rem;
+}
+
+.ui.two.column.relaxed.grid{
+  width:700px;
+}
+
+.ui.red.button{
+  position: relative;
+  top: 25%;
+  left: -10px;
+}
