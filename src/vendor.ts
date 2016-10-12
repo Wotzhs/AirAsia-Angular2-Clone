@@ -11,6 +11,3 @@ import 'rxjs';
 // semantic ui for styling
 import 'semantic-ui/dist/semantic.css';
 import 'semantic-ui/dist/semantic.js';
-
-import 'swipe-js/style.css';
-import 'swipe-js/swipe.js';

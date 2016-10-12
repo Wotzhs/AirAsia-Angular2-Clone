@@ -13,6 +13,7 @@ import { FooterComponent} from './footer/footer.component';
 import { WebCheckInComponent} from './navbar/web-check-in/web-check-in.component';
 import { TravelInfoComponent} from './navbar/travel-information/travel-info.component';
 import { BusinessGovernmentComponent} from './navbar/business-government/business-government.component';
+import { LoginComponent} from './navbar/login/login.component';
 
 // landing page sub components
 import { BookingBoxComponent} from './landing-page/booking-box.component';
@@ -26,7 +27,7 @@ import { UpdatesComponent } from './landing-page/updates.component'
   declarations: [
     AppComponent,
         NavbarComponent,
-            WebCheckInComponent, TravelInfoComponent, BusinessGovernmentComponent,
+            WebCheckInComponent, TravelInfoComponent, BusinessGovernmentComponent, LoginComponent,
         FooterComponent,
         LandingPageComponent,
             BookingBoxComponent, AdCarouselBoxComponent, BannerComponent, UpdatesComponent

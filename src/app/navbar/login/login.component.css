@@ -1,0 +1,11 @@
+.ui.vertical.text.menu > .item{
+  text-align: center;
+}
+
+.ui.vertical.text.menu > .item ~ .item{
+  text-align: left;
+}
+
+#signup{
+  color:red;
+}
