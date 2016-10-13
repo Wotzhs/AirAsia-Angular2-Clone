@@ -14,16 +14,16 @@ a{
 
 .ui.circular.image.blog{
   display: inline;
-  width: 64px;
-  height: 64px;
+  width: 68px;
+  height: 68px;
   margin-left: -0.45rem;
   margin-right: -0.15rem;
 }
 
 .ui.circular.image.line{
   display: inline;
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   /*margin-left: -0.45rem;*/
   margin-right: 0.15rem;
 }

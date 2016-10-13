@@ -14,4 +14,5 @@ import 'semantic-ui/dist/semantic.js';
 
 // owl carousel for carousel component
 import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 import 'owl.carousel/dist/owl.carousel.js';
