@@ -1,0 +1,38 @@
+/*these dont work because the contents are dynamically marked-up throgh the plugin*/
+/*these styles are applied with jquery*/
+
+/*(.owl-theme.owl-nav){
+  position: relative;
+  top:-180px;
+}
+
+.owl-prev{
+  float:left;
+}
+
+.owl-next{
+  float:right;
+}
+
+.owl-dots{
+  position: relative;
+  top: -45px;
+}
+
+.owl-dot.active{
+  color:red;
+}*/
+
+.container{
+  padding: 10% 10% 10% 0px;
+}
+
+.wrap{
+  border: 0.5px solid grey;
+  border-radius: 10px;
+}
+
+.signup{
+  position: relative;
+  top: -15px;
+}

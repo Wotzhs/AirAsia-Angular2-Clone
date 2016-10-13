@@ -1,6 +1,18 @@
-<div class="owl-carousel owl-theme">
-    <div><img [src]="carousel1" alt="carousel1" /></div>
-    <div><img [src]="carousel2" alt="carousel2" /></div>
-    <div><img [src]="carousel3" alt="carousel3" /></div>
-    <div><img [src]="carousel4" alt="carousel4" /></div>
+<div class="container">
+  <div class="wrap">
+    <div class="owl-carousel owl-theme" (mouseover)="showNavButton()" (mouseout)="hideNavButton()">
+        <div><img [src]="carousel1" alt="carousel1" /></div>
+        <div><img [src]="carousel2" alt="carousel2" /></div>
+        <div><img [src]="carousel3" alt="carousel3" /></div>
+        <div><img [src]="carousel4" alt="carousel4" /></div>
+    </div>
+    <div class="signup">
+      <h4>
+        Be a member
+        <a href="https://member.airasia.com/register.aspx?culture=en-GB" class="ui red button">Sign up now</a>
+        OR&ensp;
+        <a href="https://www.facebook.com/login.php?skip_api_login=1&api_key=581443778609845&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv2.2%2Fdialog%2Foauth%3Fredirect_uri%3Dhttps%253A%252F%252Fmember.airasia.com%252FFB_verification.aspx%26display%3Dpopup%26scope%3Demail%252Cuser_birthday%252Cuser_location%26client_id%3D581443778609845%26ret%3Dlogin&cancel_uri=https%3A%2F%2Fmember.airasia.com%2FFB_verification.aspx%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%23_%3D_&display=popup" class="ui facebook button"><i class="facebook icon"></i>Sign up with facebook</a>
+      </h4>
+    </div>
+  </div>
 </div>
