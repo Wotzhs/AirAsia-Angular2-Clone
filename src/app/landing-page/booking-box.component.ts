@@ -9,6 +9,9 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 export class BookingBoxComponent implements OnInit {
   bookingBox: FormGroup;
+
+  firstOption = { default: 'flight'};
+
   constructor(private formbuilder: FormBuilder){}
 
   public currencies = [
@@ -91,5 +94,14 @@ export class BookingBoxComponent implements OnInit {
   updateReturnDate(event: any){
     console.log('return date: ', event.date, ' - formatted', event.formatted, ' - epoc timestamp', event.epoc);
     this.bookingBox.patchValue({return_date: event.formatted});
+  }
+
+  setActive = (e:any)=>{
+    (<any>document.querySelectorAll(".ui.circular.red.label")).forEach((i:any)=>{i.classList.remove("red")});
+    e.srcElement.classList.add("red");
+    // alert($.parseHTML(e.srcElement))
+    alert(JSON.stringify(e.target))
+    // alert(JSON.stringify(e.returnValue))
+    // alert(JSON.stringify(e.srcElement))
   }
 }
