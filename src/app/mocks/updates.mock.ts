@@ -1,4 +1,4 @@
-import {Updates} from '../landing-page/updates';
+import {Updates} from '../landing-page/updates/updates';
 
 export const UPDATES: Updates[] = [
   {id: 1, imageUrl: '../src/assets/img/big_final_call-oct.png', description: "Travel period: Now - 30 November 2016"},

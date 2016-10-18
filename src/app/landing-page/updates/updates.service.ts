@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Updates} from './updates';
-import {UPDATES} from '../mocks/updates.mock';
+import {UPDATES} from '../../mocks/updates.mock';
 
 @Injectable()
 export class UpdatesService {

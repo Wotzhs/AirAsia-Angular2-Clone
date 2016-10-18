@@ -1,110 +1,29 @@
 import {Component, OnChanges, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {BookingTypeTabs} from './booking-box';
+import {BookingTypeTabsService} from './booking-box.services';
 
 @Component({
   selector: 'booking-box',
   templateUrl: './booking-box.component.html',
-  styleUrls: ['./booking-box.component.css']
+  styleUrls: ['./booking-box.component.css'],
+  providers: [BookingTypeTabsService]
 })
 
 export class BookingBoxComponent implements OnInit {
-  bookingBox: FormGroup;
 
-  firstOption = { default: 'flight'};
+  selectedTab: BookingTypeTabs;
+  bookingTypeTabs: BookingTypeTabs[];
 
-  constructor(private formbuilder: FormBuilder){}
-
-  public currencies = [
-    {value: "AUD", display:"Australian Dollar"},
-    {value: "MYR", display:"Malaysian Ringgit"},
-    {value: "SGD", display:"Singapore Dollar"},
-    {value: "USD", display:"US Dollar"},
-    {value: "GBP", display:"Pound Sterling"},
-  ]
-
-  public origins = [
-    {value: "kualalumpur", display:"Kuala Lumpur"},
-    {value: "kotakinabalu", display:"Kota Kinabalu"},
-    {value: "sandakan", display:"Sandakan"},
-    {value: "miri", display:"Miri"},
-    {value: "kuching", display:"Kuching"}
-  ]
-
-  public destinations = [
-    {value: "kualalumpur", display:"Kuala Lumpur"},
-    {value: "kotakinabalu", display:"Kota Kinabalu"},
-    {value: "sandakan", display:"Sandakan"},
-    {value: "miri", display:"Miri"},
-    {value: "kuching", display:"Kuching"}
-  ]
-
-  public flightTypes = [
-    {value: "return", display:"Return"},
-    {value: "oneway", display:"One-way"},
-    {value: "multicity", display:"Multi-City"}
-  ]
-
-  public bookingTypeTabs = [
-    { value: "Flight", display: "Flight"},
-    { value: "Hotel", display: "Hotel"},
-    { value: "FlightHotel", display: "Flight + Hotel"},
-    { value: "Car", display: "Car"}
-  ]
-
-  public bookingChoices = [
-    { value: "date", display: "I must travel on these dates" },
-    { value: "price", display: "I just want the cheapest flight"}
-  ]
-
-  public myDatePickerOptions = {
-  	dateFormat: "dd/mm/yyyy",
-	fistDayOfWeek: 'mo',
-	sunHighlight: true,
-	height:'34px',
-	// width: '260px',
-	inline: false,
-	disableUntil: {year: new Date().getFullYear() , month: new Date().getMonth()+1 , day: new Date().getDate()-1}
-  }
+  constructor(private bookingTypeTabsService: BookingTypeTabsService){}
 
   ngOnInit(){
-    this.bookingBox = this.formbuilder.group({
-      bookingType: ["", Validators.required],
-      flightType: ["", Validators.required],
-      origin: ["", Validators.required],
-      destination: ["", Validators.required],
-      currency: ["", Validators.required],
-      adult: ["", Validators.required],
-      children: ["", Validators.required],
-      infant: ["", Validators.required],
-      bookingChoice: ["", Validators.required],
-      depart_date: ["", Validators.required],
-      return_date: ["", Validators.required],
-    })
-  }
-  ngOnChanges(){
-    alert("agaga")
+    this.getBookingTypeTabs();
+    (<any>$('.ui.radio.checkbox')).checkbox();
   }
 
-  submit(origin: String, destination: boolean){
-    alert(JSON.stringify(origin) + destination)
-   }
-
-  updateDepartDate(event: any){
-    console.log('depart date:', event.date, ' - formatted', event.formatted, ' - epoc timestamp', event.epoc);
-    this.bookingBox.patchValue({depart_date: event.formatted});
+  getBookingTypeTabs= (): void=>{
+    this.bookingTypeTabsService.getBookingTypeTabs().then(bookingTypeTabs => this.bookingTypeTabs = bookingTypeTabs)
   }
 
-  updateReturnDate(event: any){
-    console.log('return date: ', event.date, ' - formatted', event.formatted, ' - epoc timestamp', event.epoc);
-    this.bookingBox.patchValue({return_date: event.formatted});
-  }
-
-  setActive = (e:any)=>{
-    (<any>document.querySelectorAll(".ui.circular.red.label")).forEach((i:any)=>{i.classList.remove("red")});
-    e.srcElement.classList.add("red");
-    // alert($.parseHTML(e.srcElement))
-    alert(JSON.stringify(e.target))
-    // alert(JSON.stringify(e.returnValue))
-    // alert(JSON.stringify(e.srcElement))
-  }
 }

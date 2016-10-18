@@ -16,11 +16,11 @@ import { BusinessGovernmentComponent} from './navbar/business-government/busines
 import { LoginComponent} from './navbar/login/login.component';
 
 // landing page sub components
-import { BookingBoxComponent} from './landing-page/booking-box.component';
-import { BannerComponent} from './landing-page/banner.component';
-import { AdCarouselBoxComponent} from './landing-page/ad-carousel-box.component';
+import { BookingBoxComponent} from './landing-page/booking-box/booking-box.component';
+import { BannerComponent} from './landing-page/banner/banner.component';
+import { AdCarouselBoxComponent} from './landing-page/ad-carousel/ad-carousel-box.component';
 import { MyDatePickerModule } from 'mydatepicker/src/my-date-picker/my-date-picker.module';
-import { UpdatesComponent } from './landing-page/updates.component'
+import { UpdatesComponent } from './landing-page/updates/updates.component'
 
 @NgModule({
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, MyDatePickerModule, routing],
