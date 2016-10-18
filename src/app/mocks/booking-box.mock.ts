@@ -28,8 +28,8 @@ export const FLIGHTTYPES: FlightTypes[] = [
 ]
 
 export const BOOKINGTYPETABS: BookingTypeTabs[] = [
-  { id: 1, type: "Flight", text: "Flight"},
-  { id: 2, type: "Hotel", text: "Hotel"},
-  { id: 3, type: "FlightHotel", text: "Flight + Hotel"},
-  { id: 4, type: "Car", text: "Car"}
+  { id: 1, type: "flight", text: "Flight"},
+  { id: 2, type: "hotel", text: "Hotel"},
+  { id: 3, type: "flighthotel", text: "Flight + Hotel"},
+  { id: 4, type: "car", text: "Car"}
 ]

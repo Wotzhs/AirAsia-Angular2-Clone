@@ -14,3 +14,7 @@
 .ui.circular.label{
   min-width: 10em;
 }
+
+[flightAnchor]{
+  display: none;
+}

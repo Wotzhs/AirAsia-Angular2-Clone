@@ -17,6 +17,12 @@ import { LoginComponent} from './navbar/login/login.component';
 
 // landing page sub components
 import { BookingBoxComponent} from './landing-page/booking-box/booking-box.component';
+    // Booking Box Sub components
+    import {BookingBoxFlightTabComponent} from './landing-page/booking-box/booking-box-flight-tab.component';
+    import {BookingBoxHotelTabComponent} from './landing-page/booking-box/booking-box-hotel-tab.component';
+    import {BookingBoxFlightHotelTabComponent} from './landing-page/booking-box/booking-box-flight-hotel-tab.component';
+    import {BookingBoxCarTabComponent} from './landing-page/booking-box/booking-box-car-tab.component';
+
 import { BannerComponent} from './landing-page/banner/banner.component';
 import { AdCarouselBoxComponent} from './landing-page/ad-carousel/ad-carousel-box.component';
 import { MyDatePickerModule } from 'mydatepicker/src/my-date-picker/my-date-picker.module';
@@ -30,7 +36,9 @@ import { UpdatesComponent } from './landing-page/updates/updates.component'
             WebCheckInComponent, TravelInfoComponent, BusinessGovernmentComponent, LoginComponent,
         FooterComponent,
         LandingPageComponent,
-            BookingBoxComponent, AdCarouselBoxComponent, BannerComponent, UpdatesComponent
+            BookingBoxComponent,
+                BookingBoxFlightTabComponent,BookingBoxHotelTabComponent, BookingBoxFlightHotelTabComponent, BookingBoxCarTabComponent,
+            AdCarouselBoxComponent, BannerComponent, UpdatesComponent
   ],
   bootstrap: [AppComponent]
 })

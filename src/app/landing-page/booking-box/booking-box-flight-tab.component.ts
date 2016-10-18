@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: "flight-tab",
   templateUrl: './booking-box-flight-tab.component.html',
   styleUrls: ['./booking-box-flight-tab.component.css']
 })

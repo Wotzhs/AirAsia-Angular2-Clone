@@ -5,10 +5,12 @@
         <div class="field" *ngFor="let bookingType of bookingTypeTabs">
           <div class="ui radio checkbox">
             <input type="radio" name="bookingType" value={{bookingType.type}} tabindex="0" id={{bookingType.type}} class="hidden">
-            <label attr.for="{{bookingType.type}}">{{bookingType.text}}</label>
+            <label attr.for="{{bookingType.type}}" (click)="openChildComponent(selectComponent(bookingType.type))">{{bookingType.text}}</label>
           </div>
         </div>
       </div>
+
+      <div #tabAnchor></div>
     </div>
   </div>
 </div>
