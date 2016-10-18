@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -44,7 +44,7 @@ export class BookingBoxComponent implements OnInit {
     {value: "multicity", display:"Multi-City"}
   ]
 
-  public bookingTypes = [
+  public bookingTypeTabs = [
     { value: "Flight", display: "Flight"},
     { value: "Hotel", display: "Hotel"},
     { value: "FlightHotel", display: "Flight + Hotel"},
@@ -80,6 +80,9 @@ export class BookingBoxComponent implements OnInit {
       depart_date: ["", Validators.required],
       return_date: ["", Validators.required],
     })
+  }
+  ngOnChanges(){
+    alert("agaga")
   }
 
   submit(origin: String, destination: boolean){

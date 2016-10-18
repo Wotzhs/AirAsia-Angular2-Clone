@@ -3,7 +3,7 @@
     <div class="ui inverted segment">
       <div class="ui inverted form">
         <div class="inline fields"> <!-- Booking Type (Flight/Hotel/Car) -->
-          <div *ngFor="let bookingType of bookingTypes">
+          <div *ngFor="let bookingType of bookingTypeTabs">
             <div class="field">
               <div class="ui radio checkbox">
                 <input type="radio" formControlName="bookingType" tabindex="0" value={{bookingType.value}}>
