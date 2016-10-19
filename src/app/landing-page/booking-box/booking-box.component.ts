@@ -18,10 +18,10 @@ import {BookingBoxCarTabComponent} from './booking-box-car-tab.component';
 
 export class BookingBoxComponent implements OnInit {
 
-  selectedTab: BookingTypeTabs;
+  initTab: string;
   bookingTypeTabs: BookingTypeTabs[];
 
-  @ViewChild('tabAnchor', {read: ViewContainerRef}) tabAnchor:ViewContainerRef;
+  @ViewChild('childComponent', {read: ViewContainerRef}) childComponent:ViewContainerRef;
 
   constructor(
     private bookingTypeTabsService: BookingTypeTabsService,
@@ -48,21 +48,18 @@ export class BookingBoxComponent implements OnInit {
   }
 
   openChildComponent = (component:any)=>{
-    this.tabAnchor.clear();
+    this.childComponent.clear();
     let componentFactory = this.componentFactoryResolver.resolveComponentFactory(component)
-    let componentRef = this.tabAnchor.createComponent(componentFactory);
+    let componentRef = this.childComponent.createComponent(componentFactory);
   }
 
   ngOnInit(){
     this.getBookingTypeTabs();
-    // this.openChildComponent(BookingBoxFlightTabComponent);
-
+    this.initTab = 'flight';
+    this.openChildComponent(this.selectComponent(this.initTab));
   }
 
   getBookingTypeTabs= (): void=>{
     this.bookingTypeTabsService.getBookingTypeTabs().then(bookingTypeTabs => this.bookingTypeTabs = bookingTypeTabs)
   }
-
-
-
 }
