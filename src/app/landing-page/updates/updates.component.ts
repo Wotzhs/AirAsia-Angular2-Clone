@@ -1,4 +1,4 @@
-import {Component, OnInit, trigger, state, style, transition, animate} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Updates} from './updates';
 import {UpdatesService} from './updates.service';
 
