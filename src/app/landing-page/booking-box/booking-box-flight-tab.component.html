@@ -1,21 +1,31 @@
 <form>
   <div class="inline fields">
-    <div class="twelve wide field">
+    <div class="ten wide field">
       <div *ngFor="let flightType of flightTypes">
         <div class="field">
-            <div class="ui circular label" (click)="setActive($event)" >{{flightType.display}}</div>
+            <div class="ui circular label" [class.red]="flightType.type === this.selectedFlightType" (click)="selectFlightType(flightType.type)" *ngIf="flightType.type !== 'multicity'">{{flightType.text}}</div>
+            <a class="ui circular label" href="http://booking2.airasia.com/MultiCitySearch.aspx?culture=en-GB" *ngIf="flightType.type === 'multicity'">{{flightType.text}}</a>
         </div>
+      </div>
+      <div class="tooltip" data-tooltip="Enable flight bookings that include multiple stopovers, or depart and return from/to different destinations.
+      Currently only available for AirAasiaX (D7) flights.">
+        <i class="ui info circle icon"></i>
       </div>
     </div>
 
-    <div class="four wide field">
-      <select>
-        <!-- <option>{{currency.display}}</option> -->
-      </select>
+    <div class="six wide field">
+      <div class="ui compact menu" *ngIf="this.selectedCurrency !== '' ">
+        <div class="ui simple dropdown item">
+          {{this.selectedCurrency}}
+          <div class="menu">
+            <div class="item" *ngFor="let currency of currencies" (click)="selectCurrency(currency.text, currency.code)">{{currency.code}} - {{currency.text}}</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="two fields">
+  <div class="fields">
     <div class="eleven wide field">
       <div>
         <label>Origin</label>
@@ -38,47 +48,62 @@
     	  <my-date-picker [options]="myDatePickerOptions" (dateChanged)="updateDepartDate($event)"></my-date-picker>
       </div>
 
-      <div>
+      <div *ngIf="this.selectedFlightType === 'return'">
         <div><label>Return date</label></div>
        	<my-date-picker [options]="myDatePickerOptions" (dateChanged)="updateReturnDate($event)"></my-date-picker>
       </div>
     </div>
   </div>
 
-  <div class="three fields">
-    <div class="field">
+  <div class="passenger fields">
+    <div class="four wide field">
       <select>
-        <option *ngFor="let number of [0,1,2,3,4,5,6,7,8,9]" [value]="number">{{number}} Adult</option>
+        <option *ngFor="let number of [1,2,3,4,5,6,7,8,9]" [value]="number">{{number}} Adult</option>
       </select>
     </div>
-
-    <div class="field">
-      <select>
-        <option *ngFor="let number of [0,1,2,3,4,5,6,7,8,9]" [value]="number">{{number}} Children</option>
-      </select>
+    <div class="four wide field" *ngIf="!this.childrenInfant" (click)="this.childrenInfant = !this.childrenInfant">
+      <p><i class="ui plus red circular inverted icon"></i> Child / Infant</p>
     </div>
+    <div class="inline fields" *ngIf="this.childrenInfant">
+      <div class="field">
+        <select>
+          <option *ngFor="let number of [0,1,2,3,4,5,6,7,8,9]" [value]="number">{{number}} Children</option>
+        </select>
+        <div class="tooltip" data-tooltip="Children aged 2 - 11 years old on the date of travel">
+          <i class="ui info circle icon"></i>
+        </div>
 
-    <div class="field">
-      <select>
-        <option *ngFor="let number of [0,1,2,3,4,5,6,7,8,9]" [value]="number">{{number}} Infant</option>
-      </select>
-    </div>
-  </div>
+      </div>
 
-  <p>
-    <a href="javascript:void()">Travelling with under 18 or medical/special needs
-      <i class="external link icon"></i>
-    </a>
-  </p>
-
-  <div class="two fields">
-    <div class="field">
-      <div *ngFor="let bookingChoice of bookingChoices">
-          <!-- <label><input type="radio">{{bookingChoice.display}}</label> -->
+      <div class="field">
+        <select>
+          <option *ngFor="let number of [0,1,2,3,4,5,6,7,8,9]" [value]="number">{{number}} Infant</option>
+        </select>
+        <div class="tooltip" data-tooltip="Infants are from 9 days old to 2 years old on the date of travel.">
+          <i class="ui info circle icon"></i>
+        </div>
       </div>
     </div>
-    <div class="field">
-      <button class="ui submit button" type="submit">Search</button>
+
+  </div>
+
+
+
+
+
+  <div class="fields">
+    <div class="eleven wide field">
+
+        <a href="javascript:void()">Travelling with under 18 or medical/special needs
+          <i class="external link icon"></i>
+        </a>
+
+      <div *ngFor="let bookingChoice of bookingChoices">
+          <label><input type="radio" name="choice" [checked]="bookingChoice.type === this.selectedBookingChoice">{{bookingChoice.text}}</label>
+      </div>
+    </div>
+    <div class="five wide field">
+      <button class="ui submit big red button" type="submit">Search</button>
     </div>
   </div>
 </form>

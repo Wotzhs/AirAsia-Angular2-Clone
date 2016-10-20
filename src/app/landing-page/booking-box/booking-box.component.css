@@ -1,20 +1,9 @@
-.label{
-  cursor: pointer;
-  font-size: 12px;
-}
-
 .container{
   padding: 10% 0% 10% 10%;
 }
 
-.ui.form .inline.fields .field > :first-child, .ui.form .inline.field > :first-child{
-  margin: 0px;
-}
-
-.ui.circular.label{
-  min-width: 10em;
-}
-
-[flightAnchor]{
-  display: none;
+.inverted.segment{
+  max-height: 351.95px;
+  min-height: 351.95px;
+  border-radius: 10px;
 }

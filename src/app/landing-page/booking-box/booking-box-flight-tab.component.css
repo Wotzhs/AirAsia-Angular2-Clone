@@ -1,0 +1,42 @@
+.label{
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.inline.fields .field > :first-child, .inline.field > :first-child{
+  margin: 0px;
+}
+
+.ui.circular.label{
+  min-width: 7em;
+  background-color: #666;
+  color: white;
+}
+
+.field > p {
+  line-height: 38.34px;
+  cursor: pointer;
+}
+
+.tooltip{
+  display: inline;
+}
+
+.submit{
+  position: relative;
+  top:10px;
+  min-width: 8em;
+}
+
+.passenger.fields{
+  margin-bottom: 1em;
+}
+
+.passenger.fields .inline.fields{
+  margin-bottom: 0px;
+}
+
+[data-tooltip]::after{
+  white-space: pre;
+  z-index: 5;
+}

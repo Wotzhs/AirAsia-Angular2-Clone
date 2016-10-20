@@ -4,7 +4,7 @@
       <div class="inline fields"> <!-- Booking Type (Flight/Hotel/Car) -->
         <div class="field" *ngFor="let bookingType of bookingTypeTabs">
           <div class="ui radio checkbox">
-            <input type="radio" name="bookingType" value={{bookingType.type}} tabindex="0" id={{bookingType.type}} class="hidden" [checked]="bookingType.type === this.initTab ">
+            <input type="radio" name="tab" value={{bookingType.type}} tabindex="0" id={{bookingType.type}} class="hidden" [checked]="bookingType.type === this.initTab ">
             <label attr.for="{{bookingType.type}}" (click)="openChildComponent(selectComponent(bookingType.type))">{{bookingType.text}}</label>
           </div>
         </div>
