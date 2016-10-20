@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, trigger, state, style, transition, animate} from '@angular/core';
 import {Updates} from './updates';
 import {UpdatesService} from './updates.service';
 
@@ -12,8 +12,10 @@ import {UpdatesService} from './updates.service';
 export class UpdatesComponent {
 
   updates: Updates[];
+  animation: string;
 
   constructor(private updatesService: UpdatesService){}
+
   getUpdates(): void{
     this.updatesService.getUpdates().then(updates => this.updates = updates)
   }
