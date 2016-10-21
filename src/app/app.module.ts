@@ -8,6 +8,7 @@ import { routing } from './app.routing';
 import { NavbarComponent} from './navbar/navbar.component';
 import { LandingPageComponent} from './landing-page/landing-page.component';
 import { FooterComponent} from './footer/footer.component';
+import { SelectFlightPageComponent} from './select-flight-page/select-flight-page.component';
 
 // navbar sub components
 import { WebCheckInComponent} from './navbar/web-check-in/web-check-in.component';
@@ -38,7 +39,8 @@ import { UpdatesComponent } from './landing-page/updates/updates.component'
         LandingPageComponent,
             BookingBoxComponent,
                 BookingBoxFlightTabComponent,BookingBoxHotelTabComponent, BookingBoxFlightHotelTabComponent, BookingBoxCarTabComponent,
-            AdCarouselBoxComponent, BannerComponent, UpdatesComponent
+            AdCarouselBoxComponent, BannerComponent, UpdatesComponent,
+        SelectFlightPageComponent
   ],
   bootstrap: [AppComponent]
 })

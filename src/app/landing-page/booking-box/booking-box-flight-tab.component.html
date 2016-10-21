@@ -30,14 +30,16 @@
       <div>
         <label>Origin</label>
         <select>
-          <!-- <option>{{origin.display}}</option> -->
+          <option selected disabled hidden>Origin</option>
+          <option *ngFor="let destination of destinations">{{destination.text}}</option>
         </select>
       </div>
 
       <div>
         <label>Destination</label>
         <select>
-          <!-- <option>{{destination.display}}</option> -->
+          <option selected disabled hidden>Destination</option>
+          <option *ngFor="let destination of destinations">{{destination.text}}</option>
         </select>
       </div>
     </div>
@@ -72,7 +74,6 @@
         <div class="tooltip" data-tooltip="Children aged 2 - 11 years old on the date of travel">
           <i class="ui info circle icon"></i>
         </div>
-
       </div>
 
       <div class="field">
@@ -84,24 +85,19 @@
         </div>
       </div>
     </div>
-
   </div>
-
-
-
-
 
   <div class="fields">
     <div class="eleven wide field">
-
-        <a href="javascript:void()">Travelling with under 18 or medical/special needs
-          <i class="external link icon"></i>
-        </a>
+      <a href="javascript:void()">Travelling with under 18 or medical/special needs
+        <i class="external link icon"></i>
+      </a>
 
       <div *ngFor="let bookingChoice of bookingChoices">
           <label><input type="radio" name="choice" [checked]="bookingChoice.type === this.selectedBookingChoice">{{bookingChoice.text}}</label>
       </div>
     </div>
+
     <div class="five wide field">
       <button class="ui submit big red button" type="submit">Search</button>
     </div>

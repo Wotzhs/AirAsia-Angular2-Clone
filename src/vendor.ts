@@ -6,7 +6,10 @@ import '@angular/http';
 import '@angular/router';
 
 // RXJS
-import 'rxjs';
+import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+
 
 // semantic ui for styling
 import 'semantic-ui/dist/semantic.css';

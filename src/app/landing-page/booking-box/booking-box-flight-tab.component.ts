@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {FlightTypes, BookingChoices, Currencies} from './booking-box';
-import {FlightTypesService, BookingChoicesService, CurrenciesService} from './booking-box.services';
-import {FLIGHTTYPES, BOOKINGCHOICES, CURRENCIES} from '../../mocks/booking-box.mock';
+import {FlightTypes, BookingChoices, Currencies, Destinations} from './booking-box';
+import {FlightTypesService, BookingChoicesService, CurrenciesService, DestinationsService} from './booking-box.services';
+import {FLIGHTTYPES, BOOKINGCHOICES, CURRENCIES, DESTINATIONS} from '../../mocks/booking-box.mock';
 
 @Component({
   templateUrl: './booking-box-flight-tab.component.html',
   styleUrls: ['./booking-box-flight-tab.component.css'],
-  providers: [FlightTypesService, BookingChoicesService, CurrenciesService]
+  providers: [FlightTypesService, BookingChoicesService, CurrenciesService, DestinationsService]
 })
 
 export class BookingBoxFlightTabComponent {
@@ -15,6 +15,7 @@ export class BookingBoxFlightTabComponent {
   flightTypes: FlightTypes[];
   bookingChoices: BookingChoices[];
   currencies: Currencies[];
+  destinations: Destinations[];
   selectedFlightType: string;
   selectedBookingChoice: string;
   selectedCurrency: string;
@@ -23,13 +24,15 @@ export class BookingBoxFlightTabComponent {
   constructor(
     private flightTypesService: FlightTypesService,
     private bookingChoicesService: BookingChoicesService,
-    private currenciesService: CurrenciesService
+    private currenciesService: CurrenciesService,
+    private destinationsService: DestinationsService
   ){}
 
   ngOnInit(){
     this.getFlightTypes();
     this.getBookingChoices();
     this.getCurrencies();
+    this.getDestinations();
     this.selectedFlightType = "return";
     this.childrenInfant = false;
     this.selectedBookingChoice = "date";
@@ -56,6 +59,10 @@ export class BookingBoxFlightTabComponent {
 
   getCurrencies = ():void =>{
     this.currenciesService.getCurrencies().then(currencies => this.currencies = currencies)
+  }
+
+  getDestinations = ():void=>{
+    this.destinationsService.getDestinations().then(destinations => this.destinations = destinations)
   }
 
   // date picker initialization
