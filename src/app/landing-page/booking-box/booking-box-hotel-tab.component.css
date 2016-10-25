@@ -1,0 +1,16 @@
+.field > p {
+  line-height: 38.34px;
+  cursor: pointer;
+}
+
+.tooltip{
+  display: inline;
+}
+
+.passenger.fields{
+  margin-bottom: 1em;
+}
+
+.passenger.fields .inline.fields{
+  margin-bottom: 0px;
+}

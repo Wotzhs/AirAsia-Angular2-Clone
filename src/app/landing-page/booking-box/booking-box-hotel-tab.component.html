@@ -1,1 +1,60 @@
-Hotel!
+<form (submit)="setHttpGetData(serializeData($event))" [formGroup]="searchForm">
+
+      <div class="field">
+        <select>
+          <option selected disabled hidden>Destination</option>
+          <option *ngFor="let destination of destinations" [value]="destination.code">{{destination.text}}</option>
+        </select>
+      </div>
+
+
+    <div class="fields">
+    	  <my-date-picker class="six wide field" [options]="startDateOptions" (dateChanged)="updateStartDate($event)"></my-date-picker>
+       	<my-date-picker class="six wide field" [options]="endDateOptions" (dateChanged)="updateEndDate($event)"></my-date-picker>
+        <select formControlName="rooms" class="four wide field">
+          <option *ngFor="let number of [1,2,3,4]" [value]="number">{{number}} Room</option>
+        </select>
+    </div>
+
+  <div class="passenger fields">
+    <div class="four wide field">
+      <select formControlName="adult">
+        <option *ngFor="let number of [1,2,3,4,5,6,7,8,9]" [value]="number">{{number}} Adult</option>
+      </select>
+    </div>
+    <div class="four wide field" *ngIf="!this.childrenInfant" (click)="this.childrenInfant = !this.childrenInfant">
+      <p><i class="ui plus red circular inverted icon"></i> Child / Infant</p>
+    </div>
+    <div class="inline fields" *ngIf="this.childrenInfant">
+      <div class="field">
+        <select formControlName="children">
+          <option *ngFor="let number of [0,1,2,3,4,5,6,7,8,9]" [value]="number">{{number}} Children</option>
+        </select>
+        <div class="tooltip" data-tooltip="Children aged 2 - 11 years old on the date of travel">
+          <i class="ui info circle icon"></i>
+        </div>
+      </div>
+
+      <div class="field">
+        <select formControlName="infant">
+          <option *ngFor="let number of [0,1,2,3,4,5,6,7,8,9]" [value]="number">{{number}} Infant</option>
+        </select>
+        <div class="tooltip" data-tooltip="Infants are from 9 days old to 2 years old on the date of travel.">
+          <i class="ui info circle icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fields">
+    <div class="eleven wide field">
+      <a href="javascript:void()">Travelling with under 18 or medical/special needs
+        <i class="external link icon"></i>
+      </a>
+    </div>
+
+    <div class="five wide field">
+      <button class="ui submit big red button" type="submit">Search</button>
+    </div>
+  </div>
+</form>
