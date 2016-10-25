@@ -1,29 +1,17 @@
-export class BookingChoices{
-  id:number;
-  type:string;
-  text:string;
-}
-
-export class BookingTypeTabs{
-  id: number;
-  type: string;
-  text: string;
-}
-
-export class Currencies{
+class BaseClass{
   id: number;
   code: string;
   text: string;
 }
 
-export class Destinations{
-  id: number;
-  code: string;
-  text: string;
+export class BookingChoices extends BaseClass {}
+
+export class BookingTypeTabs extends BaseClass {}
+
+export class Currencies extends BaseClass {}
+
+export class Destinations extends BaseClass {
+  defaultCurrency: string;
 }
 
-export class FlightTypes{
-  id: number;
-  type: string;
-  text: string;
-}
+export class FlightTypes extends BaseClass {}

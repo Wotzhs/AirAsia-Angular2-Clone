@@ -19,12 +19,22 @@ export class CurrenciesService{
   getCurrencies(): Promise<Currencies[]>{
     return Promise.resolve(CURRENCIES)
   }
+  getCurrency(code:string): Promise<string>{
+    var selectedCurrency:string
+    CURRENCIES.filter((currency)=>{
+      if (currency.code === code){
+        selectedCurrency = currency.text +' - ' + currency.code
+      }
+    })
+    return Promise.resolve(selectedCurrency)
+  }
 }
 
 export class DestinationsService{
   getDestinations(): Promise<Destinations[]>{
     return Promise.resolve(DESTINATIONS)
   }
+  
 }
 
 export class FlightTypesService{

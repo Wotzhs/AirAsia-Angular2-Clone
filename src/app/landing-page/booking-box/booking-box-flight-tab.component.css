@@ -40,3 +40,14 @@
   white-space: pre;
   z-index: 5;
 }
+
+.ui.compact.menu{
+  background-color: transparent;
+}
+.ui.compact.menu .ui.simple.dropdown.item{
+  color: white;
+}
+
+.inline.fields{
+  min-height: 42px;
+}
