@@ -63,4 +63,18 @@ export class BookingBoxHotelTabComponent {
     }
   }
 
+  serializeData(event:any){
+    event.preventDefault();
+    const baseUrl= 'https://www.airasiago.com.my/Hotel-Search?';
+    const destination = this.searchForm.value.destination;
+    const startDate = this.searchForm.value.startDate;
+    const endDate = this.searchForm.value.endDate;
+    const numberOfRooms = this.searchForm.value.rooms;
+    const numberOfAdult = this.searchForm.value.adult;
+    const numberOfChildren = this.searchForm.value.children;
+    const numberOfInfant = this.searchForm.value.infant;
+    const requestUrl = baseUrl+destination+startDate+endDate+numberOfRooms+numberOfAdult+numberOfChildren+numberOfInfant
+    return requestUrl
+  }
+
 }
