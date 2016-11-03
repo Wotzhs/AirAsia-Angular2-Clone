@@ -1,7 +1,7 @@
 <form (submit)="setHttpGetData(serializeData($event))" [formGroup]="searchForm">
 
       <div class="field">
-        <select>
+        <select formControlName="destination">
           <option selected disabled hidden>Destination</option>
           <option *ngFor="let destination of destinations" [value]="destination.code">{{destination.text}}</option>
         </select>
