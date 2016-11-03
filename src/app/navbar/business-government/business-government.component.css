@@ -6,7 +6,6 @@ i.icon{
   background-image: url('../src/assets/img/business-government-backdrop.jpg');
   background-position: center top;
   background-size: cover;
-  z-index: -1;
 }
 
 .subsection{
