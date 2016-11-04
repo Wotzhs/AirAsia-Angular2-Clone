@@ -89,10 +89,10 @@ export class BookingBoxHotelTabComponent {
     const destination = 'destination='+this.searchForm.value.destination;
     const startDate = '&startDate='+this.searchForm.value.startDate;
     const endDate = '&endDate='+this.searchForm.value.endDate;
-    const numberOfRooms = this.searchForm.value.rooms;
-    const numberOfAdult =  this.searchForm.value.adult;
-    const numberOfChildren = eval(this.searchForm.value.children);
-    const numberOfInfant = eval(this.searchForm.value.infant);
+    const numberOfRooms = +this.searchForm.value.rooms;
+    const numberOfAdult =  +this.searchForm.value.adult;
+    const numberOfChildren = +this.searchForm.value.children;
+    const numberOfInfant = +this.searchForm.value.infant;
     const requestUrl = baseUrl+destination+startDate+endDate+this.multiplyString('&adults=',[numberOfAdult],numberOfRooms)+this.multiplyString('&children=', [numberOfChildren,numberOfInfant], numberOfRooms)
     return requestUrl
   }
