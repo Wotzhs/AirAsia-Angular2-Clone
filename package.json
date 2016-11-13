@@ -25,6 +25,7 @@
     "express": "^4.14.0",
     "file-loader": "^0.8.5",
     "mydatepicker": "0.0.36",
+    "ng2-bootstrap": "^1.1.16",
     "owl.carousel": "^2.1.6",
     "reflect-metadata": "^0.1.8",
     "rimraf": "^2.5.4",
